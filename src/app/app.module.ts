@@ -3,7 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { 
+  MatButtonModule, 
+  MatCheckboxModule,
+  MatInputModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
@@ -15,7 +21,10 @@ import { LoginPageComponent } from './login-page/login-page.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

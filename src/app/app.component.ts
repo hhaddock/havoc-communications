@@ -7,14 +7,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  isLoggedIn: Boolean = false
-
-  ngOnInit() {
-    // this will be to auto-load the login/register
-    // page based on session status
-    if (!this.isLoggedIn) {
-      // load login component (idk how rn)
-    }
-  }
+  title = 'Havoc Communications Platform';
+  sideNavOpened: Boolean
+  isLoggedIn: Boolean
+  roomNumber: Number
 }
