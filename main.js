@@ -23,8 +23,8 @@ function createSplash() {
 function createWindow() {
     // Create the browser window.
     mainWindow = new electron_1.BrowserWindow({
-        height: 600,
-        width: 800,
+        height: 700,
+        width: 900,
         show: false
     });
     mainWindow.webContents.once("dom-ready", () => {

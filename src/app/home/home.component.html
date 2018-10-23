@@ -1,13 +1,26 @@
 <h1>Home</h1>
 
-<video id="localVideo" autoplay playsinline></video>
-<video id="remoteVideo" autoplay playsinline></video>
+<ul>
+    <li>mock-up UI for video stream</li>
+</ul>
 
-<div>
-<button id="startButton">Start</button>
-<button id="callButton">Call</button>
-<button id="hangupButton">Hang Up</button>
-</div>
+<mat-card>
+    <mat-card-content>
+        <video id="localVideo" autoplay playsinline></video>
+        <video id="remoteVideo" autoplay playsinline></video>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-flat-button id="startButton">
+            <i class="material-icons">compare_arrows</i>
+        </button>
+        <button mat-flat-button id="callButton">
+            <i class="material-icons">call</i>
+        </button>
+        <button mat-flat-button id="hangupButton">
+            <i class="material-icons">call_end</i>
+        </button>
+    </mat-card-actions>
+</mat-card>
 
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 <script src="../../webrtc.js"></script>
