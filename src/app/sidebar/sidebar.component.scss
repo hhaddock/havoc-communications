@@ -1,0 +1,40 @@
+nav {
+  background: #1A1A1A;
+  height: 100%;
+  //border-right: 1px solid #beabd3;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+      a {
+        color: #998ea5;//#fff;
+        padding: 10px;
+        display: block;
+        text-align: center;
+        align-items: center;
+        i {
+          //border: 2px solid #1A1A1A;
+          padding: 10px;
+        }
+      }
+      .activated {
+        //background-color: #cfb9e8;//#00a8ff;
+        //color: #1A1A1A;
+        color: #cfb9e8;
+        background: #4f4851;
+        padding-right: 8px;
+        border-right: 2px solid #cfb9e8;
+        i {
+          border-right: 2px solid #cfb9e8;
+          background-color: #443d4c;
+          padding-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+.my-li {
+  border-top: 1px solid #443d4c;
+}

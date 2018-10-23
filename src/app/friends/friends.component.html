@@ -1,0 +1,39 @@
+<mat-card class="title-cards">
+  <mat-card-title>
+    <button mat-icon-button class="title-cards-button" (click)="showSearchInput()">
+      <i *ngIf="!isSearching" class="material-icons" id="title-search-icon">search</i>
+      <i *ngIf="isSearching" class="material-icons" id="title-search-icon">close</i>
+    </button>
+    <span *ngIf="!isSearching" class="title-span">Friends</span>
+    <mat-form-field *ngIf="isSearching">
+      <input id="search-input" (keyup)="searchInputKeyUp($event)" matInput placeholder="Enter a username">
+    </mat-form-field>
+  </mat-card-title>
+</mat-card>
+
+<ul>
+  <li *ngFor="let friend of friends">
+    <mat-card class="top-cards">
+      <mat-card-title>
+        <a routerLink="/friends/details/{{friend.id}}">{{friend.name}}</a>
+      </mat-card-title>
+      <mat-card-content>
+        <ul>
+          <li><strong>Username:</strong> {{friend.username}}</li>
+          <li><strong>Email:</strong> {{friend.email}}</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="bottom-cards">
+      <button mat-icon-button class="danger" (click)="removeFriend(friend.id)">
+        <i class="material-icons">delete</i>
+      </button>
+      <button mat-icon-button class="success">
+        <i class="material-icons">add_comment</i>
+      </button>
+      <button mat-icon-button class="info">
+        <i class="material-icons">group_add</i>
+      </button>
+    </mat-card>
+  </li>
+</ul>

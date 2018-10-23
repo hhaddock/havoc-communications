@@ -1,13 +1,36 @@
 "use strict";
+
 exports.__esModule = true;
 var electron_1 = require("electron");
 var path = require("path");
 var mainWindow;
+var splashWindow;
+
+function createSplash() {
+    splashWindow = new electron_1.BrowserWindow({
+        height: 400,
+        width: 400,
+        //show: false
+    });
+    splashWindow.once("show", () => {
+        //splashWindow.webContents.openDevTools();
+        setTimeout(createWindow, 3000);
+    });
+    splashWindow.loadFile(path.join(__dirname, "/dist/splash.html"));
+    splashWindow.show();
+}
+
 function createWindow() {
     // Create the browser window.
     mainWindow = new electron_1.BrowserWindow({
         height: 600,
-        width: 800
+        width: 800,
+        show: false
+    });
+    mainWindow.webContents.once("dom-ready", () => {
+        mainWindow.show();
+        //splashWindow.hide();
+        //splashWindow.close();
     });
     // and load the index.html of the app.
     mainWindow.loadFile(path.join(__dirname, "/dist/index.html"));

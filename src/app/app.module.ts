@@ -1,34 +1,51 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { 
-  MatButtonModule, 
-  MatCheckboxModule,
+  MatCardModule, 
+  MatButtonModule,
+  MatExpansionModule,
+  MatToolbarModule,
+  MatDividerModule,
   MatInputModule,
-  MatSidenavModule,
-  MatToolbarModule
+  MatFormFieldModule
 } from '@angular/material';
-import { LoginPageComponent } from './login-page/login-page.component';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FriendsComponent } from './friends/friends.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { FriendDetailsComponent } from './friend-details/friend-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    SidebarComponent,
+    ProfileComponent,
+    FriendsComponent,
+    HomeComponent,
+    LoginComponent,
+    FriendDetailsComponent,
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
+    MatCardModule,
     MatButtonModule,
-    MatCheckboxModule,
+    MatExpansionModule,
+    MatToolbarModule,
+    MatDividerModule,
     MatInputModule,
-    MatSidenavModule,
-    MatToolbarModule
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
-  
-}
+export class AppModule { }

@@ -1,0 +1,19 @@
+<nav>
+  <ul>
+    <li class="my-li">
+      <a routerLink="" [class.activated]="currentUrl == '/'">
+        <i class="material-icons">home</i>
+      </a>
+    </li>
+    <li class="my-li">
+      <a routerLink="profile" [class.activated]="currentUrl == '/profile'">
+        <i class="material-icons">account_circle</i>
+      </a>
+    </li>
+    <li class="my-li">
+      <a routerLink="friends" [class.activated]="currentUrl == '/friends'">
+        <i class="material-icons">supervised_user_circle</i>
+      </a>
+    </li>
+  </ul>
+</nav>
