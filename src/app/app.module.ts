@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpModule } from '@angular/http';
 
 import { 
   MatCardModule, 
@@ -43,7 +44,8 @@ import { FriendDetailsComponent } from './friend-details/friend-details.componen
     MatToolbarModule,
     MatDividerModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

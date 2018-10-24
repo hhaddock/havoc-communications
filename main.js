@@ -8,15 +8,17 @@ var splashWindow;
 
 function createSplash() {
     splashWindow = new electron_1.BrowserWindow({
-        height: 400,
-        width: 400,
-        //show: false
+        height: 600,
+        width: 600,
+        show: false,
+        allowRunningInsecureContent: true
     });
     splashWindow.once("show", () => {
-        //splashWindow.webContents.openDevTools();
-        setTimeout(createWindow, 3000);
+        splashWindow.webContents.openDevTools();
+        setTimeout(createWindow, 10000);
     });
-    splashWindow.loadFile(path.join(__dirname, "/dist/splash.html"));
+    splashWindow.loadFile(path.join(__dirname, "/splash.html"));
+    //splashWindow.loadFile(path.join(__dirname, "/splash.js"));
     splashWindow.show();
 }
 

@@ -1,16 +1,17 @@
-<mat-toolbar>
+<mat-toolbar *ngIf="userIsActive">
   <span id="toolbar-title">
     <strong>H</strong>avoc <strong>C</strong>ommunications <strong>P</strong>latform
   </span>
   <span id="toolbar-btns">
-    <button mat-icon-button>
+    <button mat-icon-button (click)="logout()">
       <i class="material-icons">person</i>
     </button>
   </span>
 </mat-toolbar>
-<div id="container">
+<div id="container" *ngIf="userIsActive">
   <app-sidebar></app-sidebar>
   <div id="content">
     <router-outlet></router-outlet>
   </div>
 </div>
+<app-login *ngIf="!userIsActive"></app-login>
