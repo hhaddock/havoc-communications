@@ -11,7 +11,8 @@ import {
   MatToolbarModule,
   MatDividerModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatGridListModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -45,7 +46,8 @@ import { FriendDetailsComponent } from './friend-details/friend-details.componen
     MatDividerModule,
     MatInputModule,
     MatFormFieldModule,
-    HttpModule
+    HttpModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

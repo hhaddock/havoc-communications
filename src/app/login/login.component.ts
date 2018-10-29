@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  loginData: any = { username: '', password: '' }
+  signupData: any
+
+  username: string = ''
+
   constructor() {
     
   }

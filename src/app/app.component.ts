@@ -13,7 +13,7 @@ export class AppComponent {
   userIsActive: boolean
 
   constructor(private dataServe: DataService) {
-    this.login()
+    this.checkUserStatus()
   }
 
   logout() {

@@ -16,7 +16,7 @@ export class DataService {
   }
 
   private apiPath: string = 'https://jsonplaceholder.typicode.com/'
-  private apiUrl: string = 'https://dev.baked.kitty:12345/'
+  private apiUrl: string = 'https://havoc-communications.com/'
 
   constructor(private http: HttpClient, private https: Http) { }
 
