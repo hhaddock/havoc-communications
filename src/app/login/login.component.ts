@@ -11,8 +11,7 @@ import { DataService } from '../data.service';
 export class LoginComponent implements OnInit {
 
   loginData: { username: string, password: string } = { username: '', password: '' }
-  signupData: any
-  userData: { session_token: string, username: string } = { session_token: '', username: '' }
+  isLoginFilled: boolean = false
 
   constructor(private dataServe: DataService, private AppC: AppComponent) {
 
@@ -25,13 +24,19 @@ export class LoginComponent implements OnInit {
     this.dataServe.login(this.loginData.username, this.loginData.password)
     .subscribe(res => {
       if (res.status == 200) {
-        const data = res.data
-        this.userData.session_token = data.session_token
-        this.userData.username = data.username
-        localStorage.setItem('user', JSON.stringify(this.userData))
+        this.dataServe.userData = res.data
+        this.dataServe.setLocalStorage()
         this.AppC.userIsActive = true
       }
     });
+  }
+
+  signup() {
+
+  }
+
+  loginFormFilled() {
+    this.isLoginFilled = (!this.dataServe.isEmpty(this.loginData.username) && !this.dataServe.isEmpty(this.loginData.password))
   }
 
 }

@@ -40,7 +40,7 @@ export class FriendsComponent implements OnInit {
   searchInputKeyUp(event: any): void {
     if (this.searchTerm != event.target.value) {
       this.searchTerm = event.target.value
-      var reg = new RegExp('(' + this.searchTerm + ')', 'i')
+      const reg = new RegExp('(' + this.searchTerm + ')', 'i')
       this.friends = []
       this.tFriends.forEach(element => {
         if (reg.test(element.username)) {

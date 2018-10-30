@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-title></mat-card-title>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <input [(ngModel)]="signupData.first_name" name="first_name" matInput placeholder="First Name">
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="signupData.last_name" name="last_name" matInput placeholder="Last Name">
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="signupData.email" name="email" matInput placeholder="Email">
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="signupData.username" name="username" matInput placeholder="Username">
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="signupData.password" name="password" type="password" matInput placeholder="Password">
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="pass_conf" name="pass_conf" type="password" matInput placeholder="Confirm Password">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Permission Level" (selectionChange)="permLevelChanged($event)">
+          <mat-option *ngFor="let level of permLevels" [value]="level.value">
+            <strong>{{level.value}}</strong> - ({{level.title}})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button class="info" (click)="confirm()">
+      <i class="material-icons">check</i>
+    </button>
+    <button mat-icon-button class="danger" (click)="cancel()">
+      <i class="material-icons">close</i>
+    </button>
+  </mat-card-actions>
+</mat-card>

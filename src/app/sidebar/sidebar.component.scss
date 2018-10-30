@@ -7,6 +7,7 @@ nav {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    width: 100%;
     li {
       a {
         color: #998ea5;//#fff;
@@ -23,13 +24,11 @@ nav {
         //background-color: #cfb9e8;//#00a8ff;
         //color: #1A1A1A;
         color: #cfb9e8;
-        background: #4f4851;
-        padding-right: 8px;
-        border-right: 2px solid #cfb9e8;
+        background: #6e4b82;//#443d4c;
+        //border-right: 2px solid #cfb9e8;
         i {
-          border-right: 2px solid #cfb9e8;
-          background-color: #443d4c;
-          padding-right: 8px;
+          //border-right: 2px solid #cfb9e8;
+          background-color: #1A1A1A;//#4f4851;
         }
       }
     }

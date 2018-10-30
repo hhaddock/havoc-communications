@@ -9,49 +9,37 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'havoc-communications'
   userIsActive: boolean
+  userData: { username: string, session_token: string, perm_code: number, perm_level: string } = { username: '', session_token: '', perm_code: 0, perm_level: '' }
 
-  constructor(private dataServe: DataService) {
+  constructor(public dataServe: DataService) {
+    //this.dataServe.userData = JSON.parse(localStorage.getItem('user'))
     this.checkUserStatus()
   }
 
   logout() {
-    let user: any = JSON.parse(localStorage.getItem('user'))
-    if (user) {
-      this.dataServe.logout().subscribe(res => {
-        if (res.status == 200 && res.data == "OK") {
-          this.userIsActive = false
-          user.username = ""
-          user.session_token = ""
-          localStorage.setItem('user', JSON.stringify(user))
-        } else {
-          this.userIsActive = false
-        }
-      });
-    }
+    this.dataServe.logout().subscribe(res => {
+      if (res.status == 200 && res.data == "OK") {
+        this.userIsActive = false
+        this.dataServe.clearUserData()
+        this.dataServe.setLocalStorage()
+      } else {
+        this.userIsActive = false
+        this.dataServe.clearUserData()
+        this.dataServe.setLocalStorage()
+      }
+    });
   }
 
   checkUserStatus() {
-    let user = localStorage.getItem('user')
-    if (user) {
-      this.dataServe.getUserStatus().subscribe(res => {
-        console.log(res)
-        if (res.status == 200 && res.data == "OK") {
-          this.userIsActive = true
-        } else {
-          this.userIsActive = false
-        }
-      });
-    }
-  }
-
-  _setUserLocalStorage() {
-    const user = {
-      username: 'test',
-      password: '1234'
-    }
-
-    localStorage.setItem('user', JSON.stringify(user))
+    this.dataServe.getUserStatus().subscribe(res => {
+      if (res.status == 200 && res.data == "OK") {
+        this.userIsActive = true
+      } else {
+        this.userIsActive = false
+      }
+    });
   }
 }

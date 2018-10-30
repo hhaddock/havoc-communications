@@ -1,25 +1,34 @@
-<h1>Home</h1>
+<mat-card class="title-cards">
+  <mat-card-title>
+    <span class="title-span">Dashboard</span>
+  </mat-card-title>
+</mat-card>
 
 <ul>
-    <li>mock-up UI for video stream</li>
+  <li *ngIf="isAdmin">
+    <app-admin-home-dash></app-admin-home-dash>
+  </li>
+  <li *ngIf="isMod">
+    <app-mod-home-dash></app-mod-home-dash>
+  </li>
 </ul>
 
 <mat-card>
-    <mat-card-content>
-        <video id="localVideo" autoplay playsinline></video>
-        <video id="remoteVideo" autoplay playsinline></video>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-flat-button id="startButton">
-            <i class="material-icons">compare_arrows</i>
-        </button>
-        <button mat-flat-button id="callButton">
-            <i class="material-icons">call</i>
-        </button>
-        <button mat-flat-button id="hangupButton">
-            <i class="material-icons">call_end</i>
-        </button>
-    </mat-card-actions>
+  <mat-card-content>
+    <video id="localVideo" autoplay playsinline></video>
+    <video id="remoteVideo" autoplay playsinline></video>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button id="startButton">
+      <i class="material-icons">compare_arrows</i>
+    </button>
+    <button mat-flat-button id="callButton">
+      <i class="material-icons">call</i>
+    </button>
+    <button mat-flat-button id="hangupButton">
+      <i class="material-icons">call_end</i>
+    </button>
+  </mat-card-actions>
 </mat-card>
 
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>

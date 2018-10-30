@@ -13,7 +13,8 @@ import {
   MatDividerModule,
   MatInputModule,
   MatFormFieldModule,
-  MatGridListModule
+  MatGridListModule,
+  MatSelectModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +25,9 @@ import { FriendsComponent } from './friends/friends.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { FriendDetailsComponent } from './friend-details/friend-details.component';
+import { SignupComponent } from './signup/signup.component';
+import { AdminHomeDashComponent } from './admin-home-dash/admin-home-dash.component';
+import { ModHomeDashComponent } from './mod-home-dash/mod-home-dash.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,9 @@ import { FriendDetailsComponent } from './friend-details/friend-details.componen
     HomeComponent,
     LoginComponent,
     FriendDetailsComponent,
+    SignupComponent,
+    AdminHomeDashComponent,
+    ModHomeDashComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +56,8 @@ import { FriendDetailsComponent } from './friend-details/friend-details.componen
     MatFormFieldModule,
     HttpModule,
     MatGridListModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
