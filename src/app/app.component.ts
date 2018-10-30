@@ -46,25 +46,6 @@ export class AppComponent {
     }
   }
 
-  login() {
-    this.dataServe.login('david', '1234').subscribe(res => {
-      console.log('test')
-      if (res.status == 200) {
-        console.log(res)
-        let resData = res.data
-        console.log(resData)
-        let user = {
-          username: resData.username,
-          session_token: resData.session_token
-        }
-        console.log(user)
-        localStorage.removeItem('user')
-        localStorage.setItem('user', JSON.stringify(user))
-        this.userIsActive = true
-      }
-    });
-  }
-
   _setUserLocalStorage() {
     const user = {
       username: 'test',
