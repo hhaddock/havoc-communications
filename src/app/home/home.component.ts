@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../data.service';
+import { UserRouteService } from '../user-route.service';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,9 @@ export class HomeComponent implements OnInit {
   isAdmin: boolean = false
   isMod: boolean = false
 
-  constructor(public dataServe: DataService) {
+  constructor(public dataServe: DataService, public userRoute: UserRouteService) {
     //this.dataServe.userData = JSON.parse(localStorage.getItem('user'))
-    switch (this.dataServe.userData.fk_permission_code) {
+    switch (this.userRoute.getPermissionCode()) {
       case 10:
       this.isAdmin = true
       this.isMod = true

@@ -19,7 +19,7 @@ export class AdminHomeDashComponent implements OnInit {
     switch (id) {
       case 0:
       this.showCreateUser = true
-      this.contentTitle = '~ Create User'
+      this.contentTitle = 'Create User'
       break
       default:
       this.showCreateUser = false

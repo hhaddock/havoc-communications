@@ -60,5 +60,51 @@ body {
   background-color: #e2c46f;
 }
 
+$color-red: #ff7e6b;
+$color-green: #aabd8c;
+$color-info: #b0d7ff;
+$color-warn: #e2c46f;
+
+$color-grad-1: #355C7D;
+$color-grad-2: #6C5B7B;
+$color-grad-3: #C06C84;
+$color-grad-4: #F67280;
+$color-grad-5: #F8B195;
+$color-grad-6: #ddd794;
+$color-grad-7: #9db775;
+$color-grad-8: #5ea8a4;
+
+.bg-color-grad-1 {
+  background-color: $color-grad-1;
+}
+
+.bg-color-grad-2 {
+  background-color: $color-grad-2;
+}
+
+.bg-color-grad-3 {
+  background-color: $color-grad-3;
+}
+
+.bg-color-grad-4 {
+  background-color: $color-grad-4;
+}
+
+.bg-color-grad-5 {
+  background-color: $color-grad-5;
+}
+
+.bg-color-grad-6 {
+  background-color: $color-grad-6;
+}
+
+.bg-color-grad-7 {
+  background-color: $color-grad-7;
+}
+
+.bg-color-grad-8 {
+  background-color: $color-grad-8;
+}
+
 //html, body { height: 100%; }
 //body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

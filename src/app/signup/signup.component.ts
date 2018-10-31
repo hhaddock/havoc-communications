@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { AdminHomeDashComponent } from '../admin-home-dash/admin-home-dash.component';
 import { DataService } from '../data.service';
+import { UserRouteService } from '../user-route.service';
 
 @Component({
   selector: 'app-signup',
@@ -33,7 +34,7 @@ export class SignupComponent implements OnInit {
     fk_permission_code: 1
   }
 
-  constructor(public ahdc: AdminHomeDashComponent, public dataServe: DataService) { }
+  constructor(public ahdc: AdminHomeDashComponent, public dataServe: DataService, public userRoute: UserRouteService) { }
 
   ngOnInit() {
   }
@@ -42,7 +43,7 @@ export class SignupComponent implements OnInit {
     if (this.inputsArentEmpty()) {
       if (this.dataServe.isEmail(this.signupData.email)) {
         if (this.signupData.password == this.pass_conf) {
-          this.dataServe.createUser(this.signupData).subscribe(res => {
+          this.userRoute.create(this.signupData).subscribe(res => {
             if (res.status == 200) {
               console.log('User created!')
             } else {

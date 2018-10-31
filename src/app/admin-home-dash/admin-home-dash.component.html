@@ -1,15 +1,24 @@
 <mat-card class="top-cards">
-  <mat-card-title class="card-titles">Administrator {{contentTitle}}</mat-card-title>
+  <mat-card-title class="card-titles">Administrator ~ {{contentTitle}}</mat-card-title>
 </mat-card>
 <app-signup *ngIf="showCreateUser"></app-signup>
 <mat-card class="bottom-cards">
   <mat-card-content>
-    <button class="success btns" mat-icon-button (click)="showContent(0)">
+    <button class="bg-color-grad-1 btns" mat-icon-button (click)="showContent(0)">
       <i class="material-icons">person_add</i>
     </button>
-    <button class="danger btns" mat-button>2</button>
-    <button class="info btns" mat-button>3</button>
-    <button class="warn btns" mat-button>4</button>
+    <button class="bg-color-grad-2 btns" mat-icon-button>
+      <i class="material-icons">group_add</i>
+    </button>
+    <button class="bg-color-grad-3 btns" mat-icon-button>
+      <i class="material-icons">dashboard</i>
+    </button>
+    <button class="bg-color-grad-4 btns" mat-icon-button>
+      <i class="material-icons">add_alert</i>
+    </button>
+    <button class="bg-color-grad-5 btns" mat-icon-button>
+      <i class="material-icons">create</i>
+    </button>
   </mat-card-content>
 </mat-card>
 

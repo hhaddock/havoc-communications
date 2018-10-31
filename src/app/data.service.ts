@@ -32,6 +32,14 @@ export class DataService {
     this.userData = JSON.parse(localStorage.getItem('user'))
   }
 
+  getAPIurl(): string {
+    return this.apiUrl;
+  }
+
+  getHttpHeaders(): HttpHeaders {
+    return this.httpOptions.headers
+  }
+
   login(usrnm: string, psswd: string): any {
     const user = {
       username: usrnm,

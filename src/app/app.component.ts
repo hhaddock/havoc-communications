@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { DataService } from './data.service';
+import { UserRouteService } from './user-route.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,32 +15,30 @@ export class AppComponent {
   userIsActive: boolean
   userData: { username: string, session_token: string, perm_code: number, perm_level: string } = { username: '', session_token: '', perm_code: 0, perm_level: '' }
 
-  constructor(public dataServe: DataService) {
-    //this.dataServe.userData = JSON.parse(localStorage.getItem('user'))
+  constructor(public dataServe: DataService, public userRoute: UserRouteService) {
     this.checkUserStatus()
   }
 
   logout() {
-    this.dataServe.logout().subscribe(res => {
+    this.userRoute.logout().subscribe(res => {
       if (res.status == 200 && res.data == "OK") {
         this.userIsActive = false
-        this.dataServe.clearUserData()
-        this.dataServe.setLocalStorage()
-      } else {
-        this.userIsActive = false
-        this.dataServe.clearUserData()
-        this.dataServe.setLocalStorage()
+        this.userRoute.clearUser()
       }
     });
   }
 
   checkUserStatus() {
-    this.dataServe.getUserStatus().subscribe(res => {
-      if (res.status == 200 && res.data == "OK") {
-        this.userIsActive = true
-      } else {
-        this.userIsActive = false
-      }
-    });
+    if (localStorage.getItem('user') != null) {
+      this.userRoute.status().subscribe(res => {
+        if (res.status == 200 && res.data == "OK") {
+          this.userIsActive = true
+        } else {
+          this.userIsActive = false
+        }
+      });
+    } else {
+      this.userIsActive = false
+    }
   }
 }
