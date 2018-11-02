@@ -1,8 +1,9 @@
 nav {
+  z-index: 11;
   position: fixed;
   background: #1A1A1A;
   height: 100%;
-  //border-right: 1px solid #beabd3;
+  border-right: 2px solid #6e4b82;
   ul {
     list-style-type: none;
     padding: 0;
@@ -17,24 +18,41 @@ nav {
         align-items: center;
         i {
           //border: 2px solid #1A1A1A;
-          padding: 10px;
+          padding: 16px;
         }
       }
       .activated {
         //background-color: #cfb9e8;//#00a8ff;
         //color: #1A1A1A;
+        padding: 10px 5px 10px 2px;
         color: #cfb9e8;
-        background: #6e4b82;//#443d4c;
+        background: #443d4c;
+        border-top: 2px solid #6e4b82;
+        border-left: 2px solid #6e4b82;
+        border-bottom: 2px solid #6e4b82;
+        box-shadow: 10px 0px #443d4c;
         //border-right: 2px solid #cfb9e8;
         i {
           //border-right: 2px solid #cfb9e8;
+          padding: 12px;
           background-color: #1A1A1A;//#4f4851;
+          border: 2px solid #6e4b82;
+          border-radius: 50%;
         }
+      }
+      .activated-home {
+        border-top: 0px solid black;
+        padding-top: 12px;
+        /*padding: 12px 5px 10px 2px;
+        color: #cfb9e8;
+        background: #443d4c;
+        border-left: 2px solid #6e4b82;
+        border-bottom: 2px solid #6e4b82;*/
       }
     }
   }
 }
 
 .my-li {
-  border-top: 1px solid #443d4c;
+  //border-top: 1px solid #443d4c;
 }

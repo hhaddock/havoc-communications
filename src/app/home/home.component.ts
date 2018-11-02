@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../data.service';
 import { UserRouteService } from '../user-route.service';
+import { NotificationRouteService } from '../notification-route.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   isAdmin: boolean = false
   isMod: boolean = false
 
-  constructor(public dataServe: DataService, public userRoute: UserRouteService) {
+  constructor(public dataServe: DataService, public userRoute: UserRouteService, public notifRoute: NotificationRouteService) {
     //this.dataServe.userData = JSON.parse(localStorage.getItem('user'))
     switch (this.userRoute.getPermissionCode()) {
       case 10:
@@ -28,6 +29,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.notifRoute.getAll().subscribe(res => {
+      console.log(res)
+    })
   }
 
 }

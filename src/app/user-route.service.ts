@@ -145,4 +145,12 @@ export class UserRouteService {
     }
     this.updateInLocalStorage()
   }
+
+  getUserAndToken(): any {
+    const data = {
+      username: this.user.username,
+      session_token: this.user.session_token
+    }
+    return data
+  }
 }
