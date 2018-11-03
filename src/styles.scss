@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   margin: 0;
-  background: #4f5154;//#443d4c;//#625968;//#504747;//#4f4851;//#404242;
+  background: #252626;//#4f5154;//#443d4c;//#625968;//#504747;//#4f4851;//#404242;
   font-family: Roboto,"Helvetica Neue",sans-serif;
   height: 100vh;
 }
@@ -17,8 +17,8 @@ body {
       list-style-type: none;
       margin:0;padding:0;
       li {
-        border: 1px solid #6e4b82;
-        background: #252626;
+        border: 1px solid #673ab7;
+        background: #1A1A1A;
         color: #fff;
         border-radius: 2px;
         padding: 20px;
@@ -45,25 +45,25 @@ body {
 }
 
 .danger {
-  background-color: #ff7e6b;
+  background-color: #F67280;
 }
 
 .success {
-  background-color: #aabd8c;
+  background-color: #9db775;
 }
 
 .info {
-  background-color: #b0d7ff;
+  background-color: #5ea8a4;
 }
 
 .warn {
-  background-color: #e2c46f;
+  background-color: #ddd794;
 }
 
-$color-red: #ff7e6b;
-$color-green: #aabd8c;
-$color-info: #b0d7ff;
-$color-warn: #e2c46f;
+$color-red: #F67280;
+$color-green: #9db775;
+$color-info: #5ea8a4;
+$color-warn: #ddd794;
 
 $color-grad-1: #355C7D;
 $color-grad-2: #6C5B7B;
@@ -76,50 +76,72 @@ $color-grad-8: #5ea8a4;
 
 .bg-color-grad-1 {
   background-color: $color-grad-1;
-  border-left: 1px solid $color-grad-1;
-  border-right: 1px solid $color-grad-1;
 }
 
 .bg-color-grad-2 {
   background-color: $color-grad-2;
-  border-left: 1px solid $color-grad-2;
-  border-right: 1px solid $color-grad-2;
 }
 
 .bg-color-grad-3 {
   background-color: $color-grad-3;
-  border-left: 1px solid $color-grad-3;
-  border-right: 1px solid $color-grad-3;
 }
 
 .bg-color-grad-4 {
   background-color: $color-grad-4;
-  border-left: 1px solid $color-grad-4;
-  border-right: 1px solid $color-grad-4;
 }
 
 .bg-color-grad-5 {
   background-color: $color-grad-5;
-  border-left: 1px solid $color-grad-5;
-  border-right: 1px solid $color-grad-5;
 }
 
 .bg-color-grad-6 {
   background-color: $color-grad-6;
-  border-left: 1px solid $color-grad-6;
-  border-right: 1px solid $color-grad-6;
 }
 
 .bg-color-grad-7 {
   background-color: $color-grad-7;
-  border-left: 1px solid $color-grad-7;
-  border-right: 1px solid $color-grad-7;
 }
 
 .bg-color-grad-8 {
   background-color: $color-grad-8;
-  border-left: 1px solid $color-grad-8;
-  border-right: 1px solid $color-grad-8;
+}
+
+.fg-color-1 {
+  color: $color-grad-1;
+  border: 2px solid $color-grad-1;
+}
+.fg-color-2 {
+  color: $color-grad-2;
+  border: 2px solid $color-grad-2;
+}
+.fg-color-3 {
+  color: $color-grad-3;
+  border: 2px solid $color-grad-3;
+}
+.fg-color-4 {
+  color: $color-grad-4;
+  border: 2px solid $color-grad-4;
+}
+.fg-color-5 {
+  color: $color-grad-5;
+  border: 2px solid $color-grad-5;
+}
+.fg-color-6 {
+  color: $color-grad-6;
+  border: 2px solid $color-grad-6;
+}
+.fg-color-7 {
+  color: $color-grad-7;
+  border: 2px solid $color-grad-7;
+}
+.fg-color-8 {
+  color: $color-grad-8;
+  border: 2px solid $color-grad-8;
+}
+
+.mat-tooltip {
+  font-size: 10pt;
+  //border: 2px solid #beabd35f !important;
 }
 
 //html, body { height: 100%; }

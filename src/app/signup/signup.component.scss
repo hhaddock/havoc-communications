@@ -1,7 +1,8 @@
 mat-card {
     margin-top: 10px;
-    background-color: #bab1bf;
+    background-color: #998ea5;
     align-items: center;
+    border-radius: 3px;
 }
 
 mat-form-field {
@@ -16,7 +17,7 @@ mat-card-content {
 mat-card-actions {
     padding: 2% 0px 2% 4%;
     margin: 0px;
-    background-color: #8d8591;
+    background-color: #252626;
     border-radius: 4px;
 }
 
@@ -26,5 +27,25 @@ mat-card-actions {
 }
 
 button {
+    background-color: #252626;
     margin-left: 5px;
+}
+
+$color-grad-1: #355C7D;
+$color-grad-2: #6C5B7B;
+$color-grad-3: #C06C84;
+$color-grad-4: #F67280;
+$color-grad-5: #F8B195;
+$color-grad-6: #ddd794;
+$color-grad-7: #9db775;
+$color-grad-8: #5ea8a4;
+
+.conf-btn {
+    color: $color-grad-7;
+    border: 2px solid $color-grad-7;
+}
+
+.cancel-btn {
+    color: $color-grad-4;
+    border: 2px solid $color-grad-4;
 }

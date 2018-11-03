@@ -1,17 +1,17 @@
-<nav>
+<nav [class.hide-border]="currentUrl != '/'">
   <ul>
     <li class="my-li">
-      <a routerLink="" [class.activated]="currentUrl == '/'" [class.activated-home]="currentUrl == '/'">
+      <a routerLink="" [ngClass]="currentUrl == '/' ? 'activated activated-home' : currentUrl == '/profile' ? 'bottom-right-fill' : 'top-right-fill'">
         <i class="material-icons">home</i>
       </a>
     </li>
     <li class="my-li">
-      <a routerLink="profile" [class.activated]="currentUrl == '/profile'">
+      <a routerLink="profile" [ngClass]="currentUrl == '/profile' ? 'activated' : 'top-right-fill'">
         <i class="material-icons">account_circle</i>
       </a>
     </li>
     <li class="my-li">
-      <a routerLink="friends" [class.activated]="currentUrl == '/friends'">
+      <a routerLink="friends" [class.activated]="currentUrl == '/friends'" [class.top-right-fill]="currentUrl == '/profile'">
         <i class="material-icons">supervised_user_circle</i>
       </a>
     </li>

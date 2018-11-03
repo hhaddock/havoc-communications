@@ -14,7 +14,8 @@ import {
   MatInputModule,
   MatFormFieldModule,
   MatGridListModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTooltipModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -57,7 +58,8 @@ import { ModHomeDashComponent } from './mod-home-dash/mod-home-dash.component';
     HttpModule,
     MatGridListModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,7 +2,7 @@ mat-toolbar {
     z-index: 10;
     background-color: #1A1A1A;
     color: #998ea5;//#afafaf
-    border-bottom: 2px solid #6e4b82;
+    border-bottom: 2px solid #673ab7;
 }
 
 strong {
@@ -26,4 +26,9 @@ strong {
 
 #container {
     margin-top: 64px;
+}
+
+#user-role {
+    font-size: 10pt;
+    vertical-align: 8%;
 }

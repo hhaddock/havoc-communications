@@ -1,14 +1,14 @@
 .bottom-cards {
     margin-top: 10px;
-    background-color: #1A1A1A;
+    background-color: #252626;
     //padding-top: 0;
     //padding-bottom: 0;
     padding: 1%;
 }
 
 .top-cards {
-    margin-top: 10px;
-    background-color: #1A1A1A;
+    //margin-top: 10px;
+    background-color: #252626;
 }
 
 .title-cards {
@@ -20,7 +20,8 @@
 }
 
 .btns {
-    margin: 0px 2%;
+    margin: 0px 1%;
+    color: #252626;
 }
 
 .title-span {
@@ -29,11 +30,10 @@
 }
 
 .card-titles {
-    color: #beabd3;
+    color: #beabd3; 
     font-size: 11pt;
 }
 
-#btn-container {
-    //margin: 0px 3%;
-    text-align: center;
+.mat-button-focus-overlay {
+    background: red;
 }
