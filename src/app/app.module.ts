@@ -29,6 +29,7 @@ import { FriendDetailsComponent } from './friend-details/friend-details.componen
 import { SignupComponent } from './signup/signup.component';
 import { AdminHomeDashComponent } from './admin-home-dash/admin-home-dash.component';
 import { ModHomeDashComponent } from './mod-home-dash/mod-home-dash.component';
+import { WebrtcComponent } from './webrtc/webrtc.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ModHomeDashComponent } from './mod-home-dash/mod-home-dash.component';
     FriendDetailsComponent,
     SignupComponent,
     AdminHomeDashComponent,
-    ModHomeDashComponent
+    ModHomeDashComponent,
+    WebrtcComponent
   ],
   imports: [
     BrowserModule,
