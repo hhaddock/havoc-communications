@@ -6,6 +6,16 @@
 /out-tsc
 
 # dependencies
+!node_modules/
+
+node_modules/*
+!node_modules/@types/
+
+node_modules/@types/*
+!node_modules/@types/webrtc/
+
+node_modules/@types/webrtc/*
+!node_modules/@types/webrtc/RTCPeerConnection.d.ts
 
 # IDEs and editors
 /.idea
