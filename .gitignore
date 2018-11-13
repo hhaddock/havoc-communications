@@ -9,7 +9,7 @@
 /node_modules
 /dist
 
-/node_modules/@types/webrtc/RTCPeerConnection.d.ts
+!/node_modules/@types/webrtc/RTCPeerConnection.d.ts
 
 # IDEs and editors
 /.idea
