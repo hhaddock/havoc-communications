@@ -1,6 +1,9 @@
 <mat-toolbar id="lock-toolbar" *ngIf="userIsActive">
+  <span id="logo">
+    <strong class="txt-color-6">HCP</strong>
+  </span>
   <span id="toolbar-title">
-    <strong>H</strong>avoc <strong>C</strong>ommunications <strong>P</strong>latform <strong>~</strong> {{userRoute.user.username}}<strong id="user-role"> ({{userRoute.getRole()}})</strong>
+    ~ {{userRoute.getUsername()}}<strong id="user-role"> ({{userRoute.getRole()}})</strong>
   </span>
   <span id="toolbar-btns">
     <button mat-icon-button (click)="logout()">

@@ -157,4 +157,8 @@ export class UserRouteService {
   getRole(): string {
     return this.user.permission_level.toUpperCase()
   }
+
+  getUsername(): string {
+    return this.user.username
+  }
 }
