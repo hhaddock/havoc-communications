@@ -26,7 +26,7 @@ import { FriendsComponent } from './friends/friends.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { FriendDetailsComponent } from './friend-details/friend-details.component';
-import { SignupComponent } from './signup/signup.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
 import { AdminHomeDashComponent } from './admin-home-dash/admin-home-dash.component';
 import { ModHomeDashComponent } from './mod-home-dash/mod-home-dash.component';
 import { WebrtcComponent } from './webrtc/webrtc.component';
@@ -40,7 +40,7 @@ import { WebrtcComponent } from './webrtc/webrtc.component';
     HomeComponent,
     LoginComponent,
     FriendDetailsComponent,
-    SignupComponent,
+    CreateAccountComponent,
     AdminHomeDashComponent,
     ModHomeDashComponent,
     WebrtcComponent

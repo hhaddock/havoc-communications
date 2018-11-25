@@ -5,11 +5,11 @@ import { DataService } from '../data.service';
 import { UserRouteService } from '../user-route.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  selector: 'app-create-account',
+  templateUrl: './create-account.component.html',
+  styleUrls: ['./create-account.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class CreateAccountComponent implements OnInit {
 
   permLevels: { value: number, title: string }[] = [
     { value: 1, title: 'User' },
