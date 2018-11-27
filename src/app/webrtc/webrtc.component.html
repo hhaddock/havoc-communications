@@ -1,3 +1,7 @@
+<mat-card id="room-in-card">
+  <input id="roomNumInput" matInput placeholder="Enter room #" (keyup)="roomInputKeyup($event)">
+</mat-card>
+
 <mat-card>
   <mat-card-content>
     <video #localVideo id="localStream" autoplay playsinline></video>

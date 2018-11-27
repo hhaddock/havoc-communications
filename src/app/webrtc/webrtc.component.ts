@@ -11,6 +11,7 @@ export class WebrtcComponent implements OnInit {
 
   _navigator = <any> navigator
   localStream: MediaStream
+  roomNumInput: string = ''
 
   constructor() { }
 
@@ -35,5 +36,12 @@ export class WebrtcComponent implements OnInit {
     tracks.forEach((track) => {
       track.stop();
     });
+  }
+
+  roomInputKeyup(event: any): void {
+    if (this.roomNumInput != event.target.value) {
+      this.roomNumInput = event.target.value
+    }
+    console.log(this.roomNumInput)
   }
 }
