@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { isObject } from 'util';
 
 import { WebrtcService } from '../webrtc.service';
 
@@ -41,7 +42,16 @@ export class WebrtcComponent implements OnInit {
   stopStream() {
     const tracks = this.localStream.getTracks();
     tracks.forEach((track) => {
-      track.stop();
+      //track.stop();
+      track.enabled = false;
+    });
+  }
+
+  startStream() {
+    const tracks = this.localStream.getTracks();
+    tracks.forEach((track) => {
+      // track.play();
+      track.enabled = true;
     });
   }
 
