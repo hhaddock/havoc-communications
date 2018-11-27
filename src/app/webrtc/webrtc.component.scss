@@ -27,17 +27,32 @@ mat-card-actions {
     padding: 1%;
     margin: 0px;
 }
+
 button {
     background-color: #252626;
     margin-left: 5px;
 }
 
+span {
+    width: 50%;
+}
+
+input {
+    width: 70%;
+}
+
 #room-in-card {
-    width: 30%;
+    width: 50%;
     margin-left: 30%;
+    background-color: #1A1A1A;
+    color: #FFF;
+    vertical-align: 20%;
+}
+
+#roomNumInput::placeholder {
+    color: #998ea5;
 }
 
 .video {
     width: 40% !important;
-
 }

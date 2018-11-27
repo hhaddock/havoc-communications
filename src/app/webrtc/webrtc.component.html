@@ -1,5 +1,15 @@
 <mat-card id="room-in-card">
-  <input id="roomNumInput" matInput placeholder="Enter room #" (keyup)="roomInputKeyup($event)">
+  <span>
+    <input id="roomNumInput" matInput placeholder="Enter room #" (keyup)="roomInputKeyup($event)">
+  </span>
+  <span>
+    <button mat-icon-button class="fg-color-7" (click)="connect()">
+      <i class="material-icons">phone_in_talk</i>
+    </button>
+    <button mat-icon-button class="fg-color-8">
+      <i class="material-icons">phone_forwarded</i>
+    </button>
+  </span>
 </mat-card>
 
 
