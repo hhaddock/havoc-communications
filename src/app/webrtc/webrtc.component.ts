@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
+import { WebrtcService } from '../webrtc.service';
+
 @Component({
   selector: 'app-webrtc',
   templateUrl: './webrtc.component.html',
@@ -13,22 +15,27 @@ export class WebrtcComponent implements OnInit {
   localStream: MediaStream
   roomNumInput: string = ''
 
-  constructor() { }
+  constructor(public webrtcServe: WebrtcService) {
+  }
 
   ngOnInit() {
+    
     const video = this.localVideo.nativeElement
     this._navigator = <any>navigator
     this._navigator.getUserMedia = ( this._navigator.getUserMedia || this._navigator.webkitGetUserMedia || this._navigator.mozGetUserMedia || this._navigator.msGetUserMedia )
   
     this._navigator.mediaDevices.getUserMedia({video: true})
-      .then(stream => {
-        console.log(stream)
-        this.localStream = stream as MediaStream
-        video.srcObject = this.localStream
-        //video.play()
-      }, error => {
-        console.log(error)
-      })
+    .then(stream => {
+      console.log(stream)
+      this.localStream = stream as MediaStream
+      video.srcObject = this.localStream
+      //video.play()
+    }, error => {
+      console.log(error)
+    })
+
+
+    this.webrtcServe.setLocalStream(this.localStream);
   }
 
   stopStream() {
@@ -42,6 +49,10 @@ export class WebrtcComponent implements OnInit {
     if (this.roomNumInput != event.target.value) {
       this.roomNumInput = event.target.value
     }
-    console.log(this.roomNumInput)
+    //console.log(this.roomNumInput)
+  }
+
+  connect(): void {
+    this.webrtcServe.connect(this.roomNumInput)
   }
 }
