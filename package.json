@@ -28,6 +28,7 @@
     "@types/webrtc": "0.0.23",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
+    "webrtc": "^1.14.1",
     "webrtc-adapter": "^6.4.4",
     "zone.js": "~0.8.26"
   },
