@@ -150,7 +150,7 @@ export class WebrtcComponent implements OnInit {
         }
       });
 
-      
+
     }
 
     sendMessage(message) {
@@ -163,6 +163,7 @@ export class WebrtcComponent implements OnInit {
       //this.localVideo.src = window.URL.createObjectURL(stream);
       this.localVideo.srcObject = stream;
       this.localStream = stream;
+      this.localVideo.muted = true;
       this.sendMessage('got user media');
       if (this.isInitiator) {
         this.maybeStart();
