@@ -29,6 +29,7 @@
     "@types/webrtc": "0.0.23",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
+    "rxjs-compat": "^6.3.3",
     "socket.io-client": "^2.1.1",
     "webrtc": "^1.14.1",
     "webrtc-adapter": "^6.4.4",
