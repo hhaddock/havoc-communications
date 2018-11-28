@@ -5,6 +5,23 @@ mat-card {
     border-radius: 3px;
 }
 
+mat-toolbar {
+    z-index: 10;
+    background-color: #1A1A1A;
+    border-left: 2px solid #673ab7;
+    border-right: 2px solid #673ab7;
+    border-bottom: 2px solid #673ab7;
+    box-shadow: 0px -10px #1A1A1A;
+    position: fixed;
+    top: 10%;
+    width: 80%;
+    padding: 0;
+}
+
+mat-toolbar-row {
+    padding: 0px 4px;
+}
+
 mat-card-content {
     width: 100%;
     height: 100%;
@@ -13,7 +30,7 @@ mat-card-content {
 }
 
 video {
-    width: 100%;
+    width: 20%;
     height: 100%;
 }
 
@@ -23,22 +40,12 @@ mat-card-actions {
     background-color: #252626;
     border-radius: 4px;
 }
-.mat-card > .mat-card-actions:last-child {
-    padding: 1%;
-    margin: 0px;
-}
 
-button {
-    background-color: #252626;
-    margin-left: 5px;
-}
-
-span {
-    width: 50%;
-}
-
-input {
-    width: 70%;
+mat-form-field {
+    padding-left: 20px;
+    color: #998ea5;
+    font-size: 11pt;
+    flex: 1 1 auto;
 }
 
 #room-in-card {
@@ -53,6 +60,19 @@ input {
     color: #998ea5;
 }
 
-.video {
-    width: 40% !important;
+.span-fill {
+    flex: 1 1 auto;
+}
+
+#local-vid-controls {
+    width: 20%;
+    text-align: center;
+}
+
+#bottom-row {
+    height: 10%;
+}
+
+.row-example {
+    margin-top: 20%;
 }

@@ -65,6 +65,7 @@ $color-green: #9db775;
 $color-info: #5ea8a4;
 $color-warn: #ddd794;
 
+$color-grad-0: #1A1A1A;
 $color-grad-1: #355C7D;
 $color-grad-2: #6C5B7B;
 $color-grad-3: #C06C84;
@@ -74,38 +75,45 @@ $color-grad-6: #ddd794;
 $color-grad-7: #9db775;
 $color-grad-8: #5ea8a4;
 
-.bg-color-grad-1 {
+.bg-color-0 {
+  background-color: $color-grad-0;
+}
+
+.bg-color-1 {
   background-color: $color-grad-1;
 }
 
-.bg-color-grad-2 {
+.bg-color-2 {
   background-color: $color-grad-2;
 }
 
-.bg-color-grad-3 {
+.bg-color-3 {
   background-color: $color-grad-3;
 }
 
-.bg-color-grad-4 {
+.bg-color-4 {
   background-color: $color-grad-4;
 }
 
-.bg-color-grad-5 {
+.bg-color-5 {
   background-color: $color-grad-5;
 }
 
-.bg-color-grad-6 {
+.bg-color-6 {
   background-color: $color-grad-6;
 }
 
-.bg-color-grad-7 {
+.bg-color-7 {
   background-color: $color-grad-7;
 }
 
-.bg-color-grad-8 {
+.bg-color-8 {
   background-color: $color-grad-8;
 }
 
+.fg-color-0 {
+  color: $color-grad-0;
+}
 .fg-color-1 {
   color: $color-grad-1;
   border: 2px solid $color-grad-1;

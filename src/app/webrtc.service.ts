@@ -84,7 +84,7 @@ export class WebrtcService {
         this.socket.disconnect()
       }
     })
-    let observer = {
+    const observer = {
       next: (data: Object) => {
         this.socket.emit('message', JSON.stringify(data))
         // if (room !== '') {

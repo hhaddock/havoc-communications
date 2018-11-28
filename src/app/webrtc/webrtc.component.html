@@ -1,64 +1,46 @@
-<mat-card id="room-in-card">
-  <span>
-    <input id="roomNumInput" matInput placeholder="Enter room #" (keyup)="roomInputKeyup($event)">
-  </span>
-  <span>
-    <button mat-icon-button class="fg-color-7" (click)="connect()">
-      <i class="material-icons">phone_in_talk</i>
-    </button>
-    <button mat-icon-button class="fg-color-8">
-      <i class="material-icons">phone_forwarded</i>
-    </button>
-  </span>
-</mat-card>
-
-
-<!-- <div class="container">
-    <mat-card class="video">
-        <mat-card-content>
-            <video #localVideo id="localStream" autoplay playsinline></video>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-icon-button class="fg-color-4" (click)="stopStream()">
-              <i class="material-icons">stop</i>
-            </button>
-            <button mat-icon-button class="fg-color-7" (click)="startStream()">
-              <i class="material-icons">play_circle_outline</i>
-            </button>
-          </mat-card-actions>
-      </mat-card>
-
-      <mat-card class="video" style="float: right;">
-          <mat-card-content>
-              <video #localVideo id="localStream" autoplay playsinline></video>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-icon-button class="fg-color-4" (click)="stopStream()">
-                <i class="material-icons">stop</i>
-              </button>
-              <button mat-icon-button class="fg-color-7" (click)="startStream()">
-                <i class="material-icons">play_circle_outline</i>
-              </button>
-            </mat-card-actions>
-        </mat-card>
-</div> -->
+<mat-toolbar>
+  <mat-toolbar-row>
+    <video #localVideo id="localStream" autoplay playsinline></video>
+    <mat-form-field>
+      <input id="roomNumInput" matInput placeholder="Enter room #" (keyup)="roomInputKeyup($event)">
+    </mat-form-field>
+    <span>
+      <button mat-icon-button class="fg-color-7" (click)="setConnection()">
+        <i class="material-icons">phone_in_talk</i>
+      </button>
+      <button mat-icon-button class="fg-color-8">
+        <i class="material-icons">phone_forwarded</i>
+      </button>
+    </span>
+  </mat-toolbar-row>
+  <mat-toolbar-row id="bottom-row">
+    <span id="local-vid-controls">
+      <button mat-icon-button class="fg-color-2" (click)="setConnection()">
+        <i class="material-icons">videocam_off</i>
+      </button>
+      <button mat-icon-button class="fg-color-3" (click)="setConnection()">
+        <i class="material-icons">mic_off</i>
+      </button>
+      <button mat-icon-button class="fg-color-4" (click)="hangup()">
+        <i class="material-icons">call_end</i>
+      </button>
+    </span>
+    <span class="span-fill">
+      
+    </span>
+    <span>
+      <button mat-icon-button class="fg-color-5">
+        <i class="material-icons">phone_in_talk</i>
+      </button>
+      <button mat-icon-button class="fg-color-6">
+        <i class="material-icons">phone_forwarded</i>
+      </button>
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
 
 <div fxLayout="row" fxLayoutAlign="center center" class="row-example">
-  <mat-card fxFlex="20%" class="video">
-    <mat-card-content>
-        <video #localVideo id="localStream" autoplay playsinline></video>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-icon-button class="fg-color-4" (click)="stopStream()">
-          <i class="material-icons">stop</i>
-        </button>
-        <button mat-icon-button class="fg-color-7" (click)="startStream()">
-          <i class="material-icons">play_circle_outline</i>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-
-    <mat-card fxFlex="20%" class="video">
+    <mat-card fxFlex="80%" class="video">
       <mat-card-content>
         <video #remoteVideo id="remoteStream" autoplay playsinline></video>
       </mat-card-content>

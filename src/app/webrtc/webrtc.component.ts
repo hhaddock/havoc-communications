@@ -24,7 +24,7 @@ export class WebrtcComponent implements OnInit {
   pc;
   remoteStream;
   turnReady;
-  pcConfig :any = {
+  pcConfig: any = {
     'iceServers': [{
       'urls': 'stun:stun.l.google.com:19302'
     }]
@@ -33,7 +33,7 @@ export class WebrtcComponent implements OnInit {
     offerToReceiveAudio: true,
     offerToReceiveVideo: true
   };
-  room = 'foo0';
+  room = '';
   socket;
   _navigator = <any> navigator;
 
@@ -63,8 +63,8 @@ export class WebrtcComponent implements OnInit {
     //   console.log(error)
     // })
     // *********** New Way ***********
-    let self = this;
-    self.setConnection();
+      // const self = this;
+      // self.setConnection();
     // let tokens=this.http.get('/getICETokens')
     //   .map((res: Response) => res.json())
     //   .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
@@ -76,7 +76,7 @@ export class WebrtcComponent implements OnInit {
   }
 
   setConnection(){
-      let self=this;
+      const self = this;
       self.localVideo = document.querySelector('#localStream');
       self.remoteVideo = document.querySelector('#remoteStream');
       // if (window.location.hostname !== 'localhost') {
@@ -89,10 +89,10 @@ export class WebrtcComponent implements OnInit {
         audio: true,
         video: true
       })
-        .then(self.gotStream.bind(self))
-        .catch(function (e) {
-          console.log(e);
-        });
+      .then(self.gotStream.bind(self))
+      .catch(function (e) {
+        console.log(e);
+      });
 
 
       window.onbeforeunload = function () {
@@ -140,7 +140,7 @@ export class WebrtcComponent implements OnInit {
         } else if (message.type === 'answer' && self.isStarted) {
           self.pc.setRemoteDescription(new RTCSessionDescription(message));
         } else if (message.type === 'candidate' && self.isStarted) {
-          var candidate = new RTCIceCandidate({
+          const candidate = new RTCIceCandidate({
             sdpMLineIndex: message.label,
             candidate: message.candidate
           });
@@ -149,8 +149,6 @@ export class WebrtcComponent implements OnInit {
           self.handleRemoteHangup();
         }
       });
-
-
     }
 
     sendMessage(message) {
@@ -185,8 +183,6 @@ export class WebrtcComponent implements OnInit {
         }
       }
     }
-
-
 
     createPeerConnection() {
       try {
@@ -252,9 +248,9 @@ export class WebrtcComponent implements OnInit {
     }
 
     requestTurn(turnURL) {
-      let self = this;
+      const self = this;
       let turnExists = false;
-      for (var i in this.pcConfig.iceServers) {
+      for (const i in this.pcConfig.iceServers) {
         if (this.pcConfig.iceServers[i].urls.substr(0, 5) === 'turn:') {
           turnExists = true;
           this.turnReady = true;
@@ -264,10 +260,10 @@ export class WebrtcComponent implements OnInit {
       if (!turnExists) {
         console.log('Getting TURN server from ', turnURL);
         // No TURN server. Get one from computeengineondemand.appspot.com:
-        var xhr = new XMLHttpRequest();
+        const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
-            var turnServer = JSON.parse(xhr.responseText);
+            const turnServer = JSON.parse(xhr.responseText);
             console.log('Got TURN server: ', turnServer);
             self.pcConfig.iceServers.push({
               'url': 'turn:' + turnServer.username + '@' + turnServer.turn,
@@ -310,10 +306,10 @@ export class WebrtcComponent implements OnInit {
 
     // Set Opus as the default audio codec if it's present.
     preferOpus(sdp) {
-      var sdpLines = sdp.split('\r\n');
-      var mLineIndex;
+      let sdpLines = sdp.split('\r\n');
+      let mLineIndex;
       // Search for m line.
-      for (var i = 0; i < sdpLines.length; i++) {
+      for (let i = 0; i < sdpLines.length; i++) {
         if (sdpLines[i].search('m=audio') !== -1) {
           mLineIndex = i;
           break;
@@ -324,9 +320,9 @@ export class WebrtcComponent implements OnInit {
       }
 
       // If Opus is available, set it as the default in m line.
-      for (i = 0; i < sdpLines.length; i++) {
+      for (let i = 0; i < sdpLines.length; i++) {
         if (sdpLines[i].search('opus/48000') !== -1) {
-          var opusPayload = this.extractSdp(sdpLines[i], /:(\d+) opus\/48000/i);
+          const opusPayload = this.extractSdp(sdpLines[i], /:(\d+) opus\/48000/i);
           if (opusPayload) {
             sdpLines[mLineIndex] = this.setDefaultCodec(sdpLines[mLineIndex],
               opusPayload);
@@ -343,16 +339,16 @@ export class WebrtcComponent implements OnInit {
     }
 
     extractSdp(sdpLine, pattern) {
-      var result = sdpLine.match(pattern);
+      const result = sdpLine.match(pattern);
       return result && result.length === 2 ? result[1] : null;
     }
 
     // Set the selected codec to the first in m line.
     setDefaultCodec(mLine, payload) {
-      var elements = mLine.split(' ');
-      var newLine = [];
-      var index = 0;
-      for (var i = 0; i < elements.length; i++) {
+      const elements = mLine.split(' ');
+      const newLine = [];
+      let index = 0;
+      for (let i = 0; i < elements.length; i++) {
         if (index === 3) { // Format of media starts from the fourth.
           newLine[index++] = payload; // Put target payload to the first.
         }
@@ -365,12 +361,12 @@ export class WebrtcComponent implements OnInit {
 
     // Strip CN from sdp before CN constraints is ready.
     removeCN(sdpLines, mLineIndex) {
-      var mLineElements = sdpLines[mLineIndex].split(' ');
+      const mLineElements = sdpLines[mLineIndex].split(' ');
       // Scan from end for the convenience of removing an item.
-      for (var i = sdpLines.length - 1; i >= 0; i--) {
-        var payload = this.extractSdp(sdpLines[i], /a=rtpmap:(\d+) CN\/\d+/i);
+      for (let i = sdpLines.length - 1; i >= 0; i--) {
+        const payload = this.extractSdp(sdpLines[i], /a=rtpmap:(\d+) CN\/\d+/i);
         if (payload) {
-          var cnPos = mLineElements.indexOf(payload);
+          const cnPos = mLineElements.indexOf(payload);
           if (cnPos !== -1) {
             // Remove CN payload from m line.
             mLineElements.splice(cnPos, 1);
@@ -382,5 +378,11 @@ export class WebrtcComponent implements OnInit {
 
       sdpLines[mLineIndex] = mLineElements.join(' ');
       return sdpLines;
+    }
+
+    roomInputKeyup(event: any): void {
+      if (this.room != event.target.value) {
+        this.room = event.target.value
+      }
     }
   }
