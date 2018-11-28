@@ -44,7 +44,7 @@ export class WebrtcComponent implements OnInit {
     }, error => {
       console.log(error)
     })
-    
+
     this.webrtcServe.setLocalStream(this.localStream);
   }
 
@@ -72,6 +72,7 @@ export class WebrtcComponent implements OnInit {
   }
 
   connect(): void {
+    console.log('connect()')
     this.webrtcServe.connect(this.roomNumInput)
     this.webrtcServe.gotStream()
     this.webrtcServe.sendCustMsg('create or join', this.roomNumInput)

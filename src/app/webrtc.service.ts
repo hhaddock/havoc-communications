@@ -97,13 +97,15 @@ export class WebrtcService {
   }
 
   gotStream() {
+    console.log('gotStream')
     this.sendMessage('got user media')
-    if (this.isInitiator) {
+    if (!this.isInitiator) {
       this.maybeStart()
     }
   }
 
   sendMessage(msg: any): void {
+    console.log(this.isInitiator)
     console.log('\nClient sending message:', msg, '\n')
     this.socket.emit('message', msg)
   }
@@ -133,8 +135,13 @@ export class WebrtcService {
     try {
       this.pc = new RTCPeerConnection(null);
       this.pc.onicecandidate = this.handleIceCandidate;
+      this.pc.onaddstream = this.handleRemoteStreamAdded;
+      this.pc.onremovestream = this.handleRemoteStreamRemoved;
+      console.log(this.pc)
     } catch (e) {
-
+      console.log('Failed to create PeerConnection, exception: ' + e.message);
+      alert('Cannot create RTCPeerConnection object.');
+      return;
     }
   }
 
