@@ -96,6 +96,13 @@ export class WebrtcService {
     return Rx.Subject.create(observer, observable)
   }
 
+  gotStream() {
+    this.sendMessage('got user media')
+    if (this.isInitiator) {
+      this.maybeStart()
+    }
+  }
+
   sendMessage(msg: any): void {
     console.log('\nClient sending message:', msg, '\n')
     this.socket.emit('message', msg)
