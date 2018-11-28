@@ -17,13 +17,10 @@ export class WebrtcService {
   
   private pc;
   private remoteStream;
+  public remoteStreamBs: Rx.BehaviorSubject<any> = new Rx.BehaviorSubject(this.remoteStream);
   private socket: SocketIOClient.Socket
 
   constructor() {
-  }
-
-  public getLocalStream(): MediaStream {
-    return this.localStream
   }
 
   public setLocalStream(stream: any): void {
@@ -37,11 +34,6 @@ export class WebrtcService {
     console.log(this.socket)
 
     const observable = new Observable((obs) => {
-      this.socket.on('message', (data) => {
-        console.log('\nReceived message from WS Server')
-        obs.next(data)
-      })
-
       this.socket.on('created', function(roomNum) {
         console.log('\nCreated room ' + roomNum)
       })
@@ -96,7 +88,8 @@ export class WebrtcService {
       next: (data: Object) => {
         this.socket.emit('message', JSON.stringify(data))
         if (room !== '') {
-          this.socket.emit('reate or join', room)
+          this.socket.emit('create or join', room)
+          console.log('room == ' + room)
         }
       }
     }
@@ -106,6 +99,11 @@ export class WebrtcService {
   sendMessage(msg: any): void {
     console.log('\nClient sending message:', msg, '\n')
     this.socket.emit('message', msg)
+  }
+
+  sendCustMsg(route: string, msg: any): void {
+    console.log('\nClient sending message:', msg, '\n')
+    this.socket.emit(route, msg)
   }
 
   maybeStart(): void {
@@ -124,7 +122,7 @@ export class WebrtcService {
     }
   }
 
-  createPeerCOnnection() {
+  createPeerConnection() {
     try {
       this.pc = new RTCPeerConnection(null);
       this.pc.onicecandidate = this.handleIceCandidate;
@@ -177,7 +175,6 @@ export class WebrtcService {
   handleRemoteStreamAdded(event) {
     console.log('Remote stream added.');
     this.remoteStream = event.stream;
-    this.remoteVideo.srcObject = remoteStream;
   }
   
   handleRemoteStreamRemoved(event) {
@@ -187,18 +184,18 @@ export class WebrtcService {
   hangup() {
     console.log('Hanging up.');
     stop();
-    sendMessage('bye');
+    this.sendMessage('bye');
   }
   
   handleRemoteHangup() {
     console.log('Session terminated.');
     stop();
-    isInitiator = false;
+    this.isInitiator = false;
   }
   
   stop() {
-    isStarted = false;
-    pc.close();
-    pc = null;
+    this.isStarted = false;
+    this.pc.close();
+    this.pc = null;
   }
 }

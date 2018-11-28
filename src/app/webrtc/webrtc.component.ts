@@ -11,16 +11,26 @@ import { WebrtcService } from '../webrtc.service';
 export class WebrtcComponent implements OnInit {
 
   @ViewChild('localVideo') localVideo: any
+  @ViewChild('remoteVideo') remoteVideo: any
 
   _navigator = <any> navigator
   localStream: MediaStream
+  remoteStream: MediaStream
   roomNumInput: string = ''
 
   constructor(public webrtcServe: WebrtcService) {
   }
 
   ngOnInit() {
-    
+    this.webrtcServe.remoteStreamBs.subscribe((val) => {
+      if (val) {
+        this.remoteStream = val;
+        this.remoteVideo.nativeElement.srcObject = this.remoteStream
+        console.log(this.remoteStream)
+      } else {
+
+      }
+    })
     const video = this.localVideo.nativeElement
     this._navigator = <any>navigator
     this._navigator.getUserMedia = ( this._navigator.getUserMedia || this._navigator.webkitGetUserMedia || this._navigator.mozGetUserMedia || this._navigator.msGetUserMedia )
@@ -64,5 +74,6 @@ export class WebrtcComponent implements OnInit {
 
   connect(): void {
     this.webrtcServe.connect(this.roomNumInput)
+    this.webrtcServe.sendCustMsg('create or join', this.roomNumInput)
   }
 }

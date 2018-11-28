@@ -45,32 +45,24 @@
 
 <div fxLayout="row" fxLayoutAlign="center center" class="row-example">
   <mat-card fxFlex="20%" class="video">
-      <mat-card-content>
-          <video #localVideo id="localStream"  autoplay playsinline></video>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-icon-button class="fg-color-4" (click)="stopStream()">
-            <i class="material-icons">stop</i>
-          </button>
-          <button mat-icon-button class="fg-color-7" (click)="startStream()">
-            <i class="material-icons">play_circle_outline</i>
-          </button>
-        </mat-card-actions>
+    <mat-card-content>
+        <video #localVideo id="localStream"  autoplay playsinline></video>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-icon-button class="fg-color-4" (click)="stopStream()">
+          <i class="material-icons">stop</i>
+        </button>
+        <button mat-icon-button class="fg-color-7" (click)="startStream()">
+          <i class="material-icons">play_circle_outline</i>
+        </button>
+      </mat-card-actions>
     </mat-card>
 
     <mat-card fxFlex="20%" class="video">
-        <mat-card-content>
-            <video #localVideo id="localStream" autoplay playsinline></video>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-icon-button class="fg-color-4" (click)="stopStream()">
-              <i class="material-icons">stop</i>
-            </button>
-            <button mat-icon-button class="fg-color-7" (click)="startStream()">
-              <i class="material-icons">play_circle_outline</i>
-            </button>
-          </mat-card-actions>
-      </mat-card>
+      <mat-card-content>
+        <video #remoteVideo id="remoteStream" autoplay playsinline></video>
+      </mat-card-content>
+    </mat-card>
 </div>
 
 
