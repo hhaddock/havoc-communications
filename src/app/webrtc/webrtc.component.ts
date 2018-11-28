@@ -86,7 +86,7 @@ export class WebrtcComponent implements OnInit {
       // }
 
       window.navigator.mediaDevices.getUserMedia({
-        audio: false,
+        audio: true,
         video: true
       })
         .then(self.gotStream.bind(self))
@@ -149,6 +149,8 @@ export class WebrtcComponent implements OnInit {
           self.handleRemoteHangup();
         }
       });
+
+      
     }
 
     sendMessage(message) {
@@ -158,7 +160,8 @@ export class WebrtcComponent implements OnInit {
 
     gotStream(stream) {
       console.log('Adding local stream.');
-      this.localVideo.src = window.URL.createObjectURL(stream);
+      //this.localVideo.src = window.URL.createObjectURL(stream);
+      this.localVideo.srcObject = stream;
       this.localStream = stream;
       this.sendMessage('got user media');
       if (this.isInitiator) {
@@ -166,9 +169,9 @@ export class WebrtcComponent implements OnInit {
       }
     }
 
-    constraints = {
+    /*constraints = {
       video: true
-    };
+    };*/
 
     maybeStart() {
       if (!this.isStarted && typeof this.localStream !== 'undefined' && this.isChannelReady) {
@@ -214,7 +217,7 @@ export class WebrtcComponent implements OnInit {
 
     handleRemoteStreamAdded(event) {
       console.log('Remote stream added.');
-      this.remoteVideo.src = window.URL.createObjectURL(event.stream);
+      this.remoteVideo.srcObject = event.stream;
       this.remoteStream = event.stream;
     }
 
