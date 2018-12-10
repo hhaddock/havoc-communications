@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if (!this.loginFormFilled) {
+    if (this.loginFormFilled()) {
       this.userRoute.login(this.loginData.username, this.loginData.password)
       .subscribe(res => {
         console.log(res)
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginFormFilled() {
-    this.isLoginFilled = (!this.dataServe.isEmpty(this.loginData.username) && !this.dataServe.isEmpty(this.loginData.password))
+    return (!this.dataServe.isEmpty(this.loginData.username) && !this.dataServe.isEmpty(this.loginData.password))
   }
 
 }
