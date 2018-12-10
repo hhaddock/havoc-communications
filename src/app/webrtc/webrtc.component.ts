@@ -38,7 +38,7 @@ export class WebrtcComponent implements OnInit {
   _navigator = <any> navigator;
 
   constructor(private http: Http) {
-    this.socket = io.connect('http://ec2-54-212-57-210.us-west-2.compute.amazonaws.com:12346');
+    this.socket = io.connect('https://signal.havoc-communications.com');
   }
 
   @ViewChild('localVideo') localVideo;
