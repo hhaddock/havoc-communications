@@ -26,7 +26,7 @@ export class DataService {
   }
 
   private apiPath: string = 'https://jsonplaceholder.typicode.com/'
-  private apiUrl: string = 'https://havoc-communications.com/'
+  private apiUrl: string = 'https://api.havoc-communications.com/'
 
   constructor(private http: HttpClient, private https: Http) {
     this.userData = JSON.parse(localStorage.getItem('user'))

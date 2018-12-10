@@ -24,19 +24,25 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.userRoute.login(this.loginData.username, this.loginData.password)
-    .subscribe(res => {
-      console.log(res)
-      if (res.status == 200) {
-        this.userRoute.setUser(res.data.user_details)
-        this.userRoute.updateInLocalStorage()
-        this.AppC.userIsActive = true
-      } else {
-        this.snackBar.open(res.status, res.data, {
-          duration: 3000
-        });
-      }
-    });
+    if (!this.loginFormFilled) {
+      this.userRoute.login(this.loginData.username, this.loginData.password)
+      .subscribe(res => {
+        console.log(res)
+        if (res.status == 200) {
+          this.userRoute.setUser(res.data.user_details)
+          this.userRoute.updateInLocalStorage()
+          this.AppC.userIsActive = true
+        } else {
+          this.snackBar.open(res.status, res.data, {
+            duration: 3000
+          });
+        }
+      });
+    } else {
+      this.snackBar.open('All inputs required', 'ERROR', {
+        duration: 3000
+      });
+    }
   }
 
   loginFormFilled() {
