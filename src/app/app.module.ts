@@ -63,7 +63,9 @@ import { WebrtcComponent } from './webrtc/webrtc.component';
     FormsModule,
     MatSelectModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatButtonModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

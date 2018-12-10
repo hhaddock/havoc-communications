@@ -2,15 +2,32 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
+import {SidebarComponent} from './sidebar/sidebar.component';
+import {LoginComponent} from './login/login.component';
+import {MatToolbarModule,MatTooltipModule} from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+import { HttpModule } from '@angular/http';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        HttpClientModule,
+        HttpModule,
+        RouterTestingModule,
+        MatToolbarModule,
+        MatTooltipModule,
+        FormsModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        SidebarComponent,
+        LoginComponent
       ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 
@@ -18,18 +35,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'havoc-communications'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('havoc-communications');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('havoc-communications!');
   });
 });
