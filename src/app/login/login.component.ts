@@ -4,6 +4,8 @@ import { AppComponent } from '../app.component';
 import { DataService } from '../data.service';
 import { UserRouteService } from '../user-route.service';
 
+import { MatSnackBar } from '@angular/material';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginData: { username: string, password: string } = { username: '', password: '' }
   isLoginFilled: boolean = false
 
-  constructor(private dataServe: DataService, private AppC: AppComponent, private userRoute: UserRouteService) {
+  constructor(private dataServe: DataService, private AppC: AppComponent, private userRoute: UserRouteService, private snackBar: MatSnackBar) {
 
   }
 
@@ -29,6 +31,10 @@ export class LoginComponent implements OnInit {
         this.userRoute.setUser(res.data.user_details)
         this.userRoute.updateInLocalStorage()
         this.AppC.userIsActive = true
+      } else {
+        this.snackBar.open(res.status, res.data, {
+          duration: 3000
+        });
       }
     });
   }

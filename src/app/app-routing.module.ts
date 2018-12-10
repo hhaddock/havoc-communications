@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FriendsComponent } from './friends/friends.component';
 import { FriendDetailsComponent } from './friend-details/friend-details.component';
+import { WebrtcComponent } from './webrtc/webrtc.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'friends/details/:id',
     component: FriendDetailsComponent
+  },
+  {
+    path: 'webrtc',
+    component: WebrtcComponent
   }
 ];
 

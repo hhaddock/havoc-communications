@@ -15,7 +15,8 @@ import {
   MatFormFieldModule,
   MatGridListModule,
   MatSelectModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -61,7 +62,8 @@ import { WebrtcComponent } from './webrtc/webrtc.component';
     MatGridListModule,
     FormsModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
