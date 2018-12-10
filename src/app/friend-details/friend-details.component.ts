@@ -11,8 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FriendDetailsComponent implements OnInit {
 
-  friend: Object
-
+  friend: any
   constructor(private route: ActivatedRoute, private data: DataService) {
     this.route.params.subscribe(params => this.friend = params.id)
   }

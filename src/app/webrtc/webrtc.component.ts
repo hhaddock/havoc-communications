@@ -38,7 +38,7 @@ export class WebrtcComponent implements OnInit {
   _navigator = <any> navigator;
 
   constructor(private http: Http) {
-    this.socket = io.connect('http://10.0.0.9:12346');
+    this.socket = io.connect('http://ec2-54-212-57-210.us-west-2.compute.amazonaws.com:12346');
   }
 
   @ViewChild('localVideo') localVideo;
@@ -48,23 +48,9 @@ export class WebrtcComponent implements OnInit {
   // tokens:any;
 
   ngOnInit() {
-    // *********** Old Way ***********
-    // const video = this.localVideo.nativeElement
-    // this._navigator = <any>navigator
-    // this._navigator.getUserMedia = ( this._navigator.getUserMedia || this._navigator.webkitGetUserMedia || this._navigator.mozGetUserMedia || this._navigator.msGetUserMedia )
-    //
-    // this._navigator.mediaDevices.getUserMedia({video: true})
-    // .then(stream => {
-    //   console.log(stream)
-    //   this.localStream = stream as MediaStream
-    //   video.srcObject = this.localStream
-    //   //video.play()
-    // }, error => {
-    //   console.log(error)
-    // })
     // *********** New Way ***********
-      // const self = this;
-      // self.setConnection();
+      const self = this;
+      self.setConnection();
     // let tokens=this.http.get('/getICETokens')
     //   .map((res: Response) => res.json())
     //   .catch((error: any) => Observable.throw(error.json().error || 'Server error'));

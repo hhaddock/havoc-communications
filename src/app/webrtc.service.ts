@@ -30,7 +30,7 @@ export class WebrtcService {
   }
 
   connect(room: string): Rx.Subject<MessageEvent> {
-    this.socket = io('http://10.0.0.9:12346')
+    this.socket = io('http://ec2-54-212-57-210.us-west-2.compute.amazonaws.com:12346')
     // console.log(this.socket)
 
     const observable = new Observable((obs) => {
